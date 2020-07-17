@@ -4,10 +4,12 @@ angular.module('LunchCheck', [])
 .controller('LunchCheckController', LunchCheckController);
 
 LunchCheckController.$inject = ['$scope'];
-
 function LunchCheckController($scope){
+
   $scope.checkLunch = function () {
+
     if ($scope.lunchMenu === undefined || $scope.lunchMenu === "") {
+        $scope.colour = "red";
         $scope.result = "Please enter data first";
       }
     else {
@@ -20,8 +22,10 @@ function LunchCheckController($scope){
           count++;
       }
       if (count <=3) {
+        $scope.colour = "green";
         $scope.result = "Enjoy!";
       } else {
+        $scope.colour = "green";
         $scope.result = "Too much!";
       }
      }
